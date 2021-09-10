@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9E test av IF, OG, ELLER funksjoner</title>
+</head>
+<style>
+
+#choosenColor{
+    font-size: larger;
+    font-weight: bolder;
+    font-family: cursive;
+    text-shadow: 1px 1px 2px gold;
+  
+} 
+.Style1{
+    background-color: ;
+}
+.style2{
+    background-color: darkblue;
+}
+/* 
+//osv.. - Oppgaven vil nok ha dette inni funksjonenen. */
+
+
+</style>
+
+
+<body>
+        <div id="app"></div>
+
+    <script>
+        //model
+        let valgtFarge = '';
+
+
+        //view
+            show();
+            function show(){
+            document.getElementById('app').innerHTML = `
+            <p><b>Oppgave:</b>Begynn med en blank html-side. Lag en 'select' som lar brukeren velge mellom fem farger; svart, mørkblå, lysgrå, lysgrønn og lys rød. <br>
+            Vis en div med bakgrunnsfargen som er valgt - også sånn at den endrer seg når man velger en ny farge. <br>
+            Bruk en if-setning med et eller-uttrykk til å velge hvit forgrunnsfarge hvis valgt farge er svart eller mørk blå - og svart forgrunnsfarge ellers. <br>
+            Bruk model-view-controller og funksjoner. </p>
+
+            <select onchange="onChange()" name="colorChooser" id="colorChooser">
+                <option value="ingen">Velg Farge</option>
+                <option value="svart">Svart</option>
+                <option value="mørkeblå">Mørkeblå</option>
+                <option value="lysegrå">Lysegrå</option>
+                <option value="lysegrønn">Lysegrønn</option>
+                <option value="lyserød">Lyserød</option>
+            </select>
+            <br>            </br>
+            <div id="choosenColor">${valgtFarge}</div>
+            `;
+        }
+
+        //controller
+        // HUSK: forskjell på CSS språk i javascript. Ikke - men stor bokstav på sammenhengende ord.
+        // app.style blir som å style hele body i CSS. 'App' er den eneste innerHtml.
+        // kanskje er det en bedre måte å bruke const/let (variabler) til å skrive funksjonen?
+        // ${...} brukes for å hente den innskrevne variabelen (let/const)
+        
+            function onChange() {
+                valgtFarge = colorChooser.value;
+                    if(valgtFarge == "svart"){
+                        app.style.backgroundColor = "black";
+                        app.style.color = "white";
+                    } else if(valgtFarge == "mørkeblå"){
+                        app.style.backgroundColor = "darkblue";
+                        app.style.color = "white";
+                    } else if(valgtFarge == "lysegrå"){
+                        app.style.backgroundColor = "lightgrey";
+                        app.style.color = "black";
+                    } else if(valgtFarge == "lysegrønn"){
+                        app.style.backgroundColor = "lightgreen";
+                        app.style.color = "black";
+                    } else if(valgtFarge == "lyserød"){
+                        app.style.backgroundColor = "salmon";
+                        app.style.color = "black";
+            }         
+        show()
+        }
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
